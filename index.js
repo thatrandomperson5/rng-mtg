@@ -1,3 +1,4 @@
+var ready = true;
 function ranInt(a, b) {
   return Math.round(Math.random() * (b-a) + a);
 }
@@ -10,6 +11,11 @@ async function fetchcards(query="(game:paper)") {
   return await response.json();
 }
 async function rcard(id) {
+  if (!ready) {
+    alert("Please wait until the previous card finishes loading.");
+    return;
+  }
+  ready = false;
   let filter = document.getElementById("filter").value;
   var cards = await fetchcards(filter);
   /*
@@ -31,4 +37,5 @@ async function rcard(id) {
   let card = cards["data"][0];
   let elm = document.getElementById(id);
   elm.setAttribute("src", card["image_uris"]["normal"]);
+  ready = true;
 }
