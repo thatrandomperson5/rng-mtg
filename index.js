@@ -3,7 +3,8 @@ function ranInt(a, b) {
 }
 
 async function fetchcards(query="(game:paper)") {
-  let url = new URL("https://api.scryfall.com/cards/search");
+  let url = new URL("https://api.scryfall.com/cards/random");
+  // let url = new URL("https://api.scryfall.com/cards/search");
   url.searchParams.append("q", query);
   let response = await fetch(url.href);
   return await response.json();
@@ -11,6 +12,7 @@ async function fetchcards(query="(game:paper)") {
 async function rcard(id) {
   let filter = document.getElementById("filter").value;
   var cards = await fetchcards(filter);
+  /*
   let total = cards["total_cards"];
   var cardNumber = ranInt(1, total);
   if (cardNumber > 175) {
@@ -23,7 +25,10 @@ async function rcard(id) {
     cardNumber -= 175 * page;
     cards = njson;
   }
+  
   let card = cards["data"][cardNumber-1];
+  */
+  let card = cards["data"][0];
   let elm = document.getElementById(id);
   elm.setAttribute("src", card["image_uris"]["normal"]);
 }
