@@ -2,7 +2,7 @@ function ranInt(a, b) {
   return Math.round(Math.random() * (b-a) + a);
 }
 
-async function fetchcards(query="") {
+async function fetchcards(query="(game:paper)") {
   let url = new URL("https://api.scryfall.com/cards/search");
   url.searchParams.append("q", query);
   let response = await fetch(url.href);
