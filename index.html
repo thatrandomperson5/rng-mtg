@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Random Magic The Gathering Cards</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </head>
   <body>
-    <button onclick="rcard('output')">Random Card</button>
-    <select name="filter" id="filter">
+    <button class="btn btn-secondary" onclick="rcard('output')">Random Card</button>
+    <select class="form-select" name="filter" id="filter">
 	    <option value="(game:paper)">No Format</option>
 	    <option value="legal:standard">Standard</option>
 	    <option value="legal:modern">Modern</option>
@@ -17,7 +18,7 @@
 	    <option value="legal:legacy">Legacy</option>
 	    <option value="legal:commander">Commander</option>
     </select>
-    <img id=output src="">
+    <img id=output class="w-75 h-75" src="">
 	<script src="index.js"></script>
   </body>
 </html>
