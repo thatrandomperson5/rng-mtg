@@ -9,13 +9,14 @@ async function fetchcards(query="(game:paper)") {
   return await response.json();
 }
 async function rcard(id) {
-  var cards = await fetchcards();
+  let filter = document.getElementById("filter").value;
+  var cards = await fetchcards(filter);
   let total = cards["total_cards"];
   var cardNumber = ranInt(1, total);
   if (cardNumber > 175) {
     let page = Math.floor(cardNumber / 175)
     let url = new URL("https://api.scryfall.com/cards/search");
-    url.searchParams.append("q", query);
+    url.searchParams.append("q", filter);
     url.searchParams.append("page", page + 1);
     let next = await fetch(url);
     let njson = await next.json();
