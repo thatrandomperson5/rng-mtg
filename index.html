@@ -9,6 +9,14 @@
   </head>
   <body>
     <button onclick="rcard('output')">Random Card</button>
+    <select name="filter" id="filter">
+	    <option value="(game:paper)">No Format</option>
+	    <option value="legal:standard">Standard</option>
+	    <option value="legal:modern">Modern</option>
+	    <option value="legal:pioneer">Pioneer</option>
+	    <option value="legal:legacy">Legacy</option>
+	    <option value="legal:commander">Commander</option>
+    </select>
     <img id=output src="">
 	<script src="index.js"></script>
   </body>
