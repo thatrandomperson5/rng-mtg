@@ -15,6 +15,7 @@ async function rcard(id) {
     alert("Please wait until the previous card finishes loading.");
     return;
   }
+  try {
   ready = false;
   let filter = document.getElementById("filter").value;
   var cards = await fetchcards(filter);
@@ -38,4 +39,7 @@ async function rcard(id) {
   let elm = document.getElementById(id);
   elm.setAttribute("src", card["image_uris"]["normal"]);
   ready = true;
+  } catch ({ name, message }) {
+    alert(`${name}: ${message}`);
+  }
 }
