@@ -41,5 +41,6 @@ async function rcard(id) {
   ready = true;
   } catch ({ name, message }) {
     alert(`${name}: ${message}`);
+    ready = true;
   }
 }
