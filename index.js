@@ -34,7 +34,7 @@ async function rcard(id) {
   
   let card = cards["data"][cardNumber-1];
   */
-  let card = cards["data"][0];
+  let card = cards;
   let elm = document.getElementById(id);
   elm.setAttribute("src", card["image_uris"]["normal"]);
   ready = true;
