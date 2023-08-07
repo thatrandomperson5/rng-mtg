@@ -37,7 +37,11 @@ async function rcard(id) {
   */
   let card = cards;
   let elm = document.getElementById(id);
-  elm.setAttribute("src", card["image_uris"]["normal"]);
+  if (card["layout"] === "transform") {
+    elm.setAttribute("src", card["card_faces"][0]["image_uris"]["normal"]);
+  } else {
+    elm.setAttribute("src", card["image_uris"]["normal"]);
+  }
   ready = true;
   } catch ({ name, message }) {
     alert(`${name}: ${message}`);
